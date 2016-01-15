@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
     </head>
     <body>
         <div class="pure-g">
             <div class="pure-u-1-2">
-                <p>Aggregation</p>
+                <h2>Aggregation</h2>
             </div>
             <div class="pure-u-1-2">
-                <p>Exploration</p>
+                <h2>Analysis</h2>
+                <svg id="corr" style="width:200;height:200;"></svg>
             </div>
         </div>
         <div class="pure-g">
-            <div class="pure-u-1">
-                <p>Analysis</p>
+            <div class="pure-u-1-2">
+                <h2>Exploration</h2>
+                <h4>Correlation Coefficient Matrix</h4>
+            </div>
+            <div class="pure-u-1-2">
+                <br>
+                <br>
+                <h4>Fisher's Discriminant Ratio</h4>
+                <h5>By Number of Features</h5>
+                <div id="fdrChart"></div>
             </div>
         </div>
-        <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+        <script src="js/charts.js"></script>
     </body>
 </html>
