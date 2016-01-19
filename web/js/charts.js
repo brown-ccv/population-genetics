@@ -32,14 +32,11 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
         },
         data: {
             x: 'x',
-            columns: [xAxisVals, fdrData],
-            selection: {
-                enabled: true
-            }
+            columns: [xAxisVals, fdrData]
         },
         tooltip: {
             format: {
-                title: function(x) { return features[x - 1]; },
+                title: function(x) { return "Feature: " + features[x - 1]; },
                 value: function(value, ratio, id, index) { return value.toFixed(2); }
             }
         },
@@ -51,7 +48,7 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
         //             format: function(x) { return features[x]; }
         //         },
                 label: {
-                    text: "Feature (Hover over Point for Name)",
+                    text: "Features, Numbered by FDR (Hover over Point for Name)",
                     position: "outer-center"
                 }
             },
@@ -102,6 +99,13 @@ corrLegend.append("text")
     .attr("font-size", corrGridSize + "px")
     .text(function(d) { return "≥ " + d.toFixed(2); });
 
+var corrTip = d3.tip()
+    .attr("class", "d3-tip")
+    .html(function(d) { return "Features: <b>" + features[d.row] + 
+        ", " + features[d.col] + "</b><br>Correlation: <b>" +
+        d.val.toFixed(2) + "</b>"; });
+corrSvg.call(corrTip);
+
 d3.text("../data_files_logbw/corr_coef_" + numFeatures + ".csv", function(text) {
     var rowNum = 0
     d3.csv.parseRows(text, function(row) {
@@ -119,7 +123,9 @@ d3.text("../data_files_logbw/corr_coef_" + numFeatures + ".csv", function(text) 
         .attr("y", function(d) { return d.row * corrGridSize; })
         .attr("width", corrGridSize)
         .attr("height", corrGridSize)
-        .style("fill", function(d) { return corrColors(d.val); });
+        .style("fill", function(d) { return corrColors(d.val); })
+        .on("mouseover", corrTip.show)
+        .on("mouseout", corrTip.hide);
 
     corrMatUpdate();
 });
@@ -225,6 +231,13 @@ confSvg.selectAll(".colLabel")
       .style("text-anchor", "end")
       .attr("transform", "translate(" + (confGridSize / 2) + "," + (confGridSize * -1/3) + ")");
 
+var confTip = d3.tip()
+    .attr("class", "d3-tip")
+    .html(function(d) { return "True Class: <b>" + classes[d.row] +
+        "</b><br>Predicted Class: <b>" + classes[d.col] +
+        "</b><br>Proportion of Observations: <b>" + d.val.toFixed(2) + "</b>"; });
+confSvg.call(confTip);
+
 var confData = [];
 for(var rowNum = 0; rowNum < classes.length; rowNum ++) {
     for(var colNum = 0; colNum < classes.length; colNum++) {
@@ -241,7 +254,9 @@ confHeatmap.enter().append("rect")
     .attr("y", function(d) { return d.row * confGridSize; })
     .attr("width", confGridSize)
     .attr("height", confGridSize)
-    .style("fill", function(d) { return confColors(0); });
+    .style("fill", function(d) { return confColors(0); })
+    .on("mouseover", confTip.show)
+    .on("mouseout", confTip.hide);
 
 confMatUpdate();
 
@@ -286,6 +301,11 @@ function confMatUpdate() {
 
         confHeatmap.transition()
             .style("fill", function(d) { return confColors(d.val); });
+
+        confSvg.selectAll(".cells title")
+            .data(confData, function(d) { return d.row + ":" + d.col; })
+          .text(function(d) { return "Proportion of observations known to be " + classes[d.row] + 
+              " and predicted to be " + classes[d.col] + ": " + d.val.toFixed(2); });
     });
 }
 
