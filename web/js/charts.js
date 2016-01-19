@@ -73,7 +73,8 @@ d3.text("../data_files/FDR.csv", function(text) {
 function corrMat() {
 
     var corrData = [];
-    var gridSize = (heatmapWidth - padding * 2) / features.length;
+    var gridSize = (heatmapWidth - padding * 2) / (features.length + 2);
+    var legendWidth = (heatmapWidth - padding * 2) / colors.length;
 
     var corrColors = d3.scale.quantile()
         .domain([-1,1])
@@ -84,6 +85,23 @@ function corrMat() {
         .attr("height", heatmapWidth)
         .append("g")
         .attr("transform", "translate(" + padding + "," + padding + ")");
+
+    var corrLegend = corrSvg.selectAll(".legend")
+        .data([-1].concat(corrColors.quantiles()), function(d) { return d; });
+
+    corrLegend.enter().append("g");
+
+    corrLegend.append("rect")
+        .attr("x", function(d, i) { return i * legendWidth; })
+        .attr("y", heatmapWidth - padding - gridSize * 2)
+        .attr("width", legendWidth)
+        .attr("height", gridSize)
+        .style("fill", function(d, i) { return colors[i]; });
+
+    corrLegend.append("text")
+        .text(function(d) { return "≥ " + d.toFixed(2); })
+        .attr("x", function(d, i) { return legendWidth * i; })
+        .attr("y", heatmapWidth - padding)
 
     var rowNum = 0
     d3.text("../data_files/corr_coef_" + numFeatures + ".csv", function(text) {
@@ -119,7 +137,8 @@ function corrMat() {
 function confMat() {
 
     var confData = [];
-    var gridSize = (heatmapWidth - padding * 2) / classes.length;
+    var gridSize = (heatmapWidth - padding * 2) / (classes.length + 2);
+    var legendWidth = (heatmapWidth - padding * 2) / colors.length;
 
     var confColors = d3.scale.quantile()
         .domain([0,0.2])
@@ -129,7 +148,56 @@ function confMat() {
         .attr("width", heatmapWidth)
         .attr("height", heatmapWidth)
         .append("g")
-        .attr("transform", "translate(" + padding + "," + padding + ")");
+        .attr("transform", "translate(" + (padding + gridSize) + "," + 
+                (padding + gridSize) + ")");
+
+    confSvg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", (heatmapWidth - (padding * 2) - (gridSize * 2)) / 2)
+        .attr("y", gridSize * -2/3)
+        .text("Predicted");
+
+    confSvg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", (heatmapWidth - (padding * 2) - (gridSize * 2)) / -2)
+        .attr("y", gridSize * -2/3)
+        .attr("transform", "rotate(-90)")
+        .text("True");
+
+    confSvg.selectAll(".rowLabel")
+        .data(classes)
+        .enter().append("text")
+          .text(function(d) { return d; })
+          .attr("x", 0)
+          .attr("y", function(d, i) { return i * gridSize; })
+          .style("text-anchor", "end")
+          .attr("transform", "translate(" + (gridSize * -1/3) + "," + (gridSize / 2) + ")");
+
+    var confLegend = confSvg.selectAll(".legend")
+        .data([0].concat(confColors.quantiles()), function(d) { return d; });
+
+    confLegend.enter().append("g");
+
+    confLegend.append("rect")
+        .attr("x", function(d, i) { return i * legendWidth; })
+        .attr("y", heatmapWidth - padding - (gridSize * 1.75))
+        .attr("width", legendWidth)
+        .attr("height", gridSize / 2)
+        .style("fill", function(d, i) { return colors[i]; });
+
+    confLegend.append("text")
+        .text(function(d) { return "≥ " + d.toFixed(2); })
+        .attr("x", function(d, i) { return legendWidth * i; })
+        .attr("y", heatmapWidth - padding - gridSize)
+
+    confSvg.selectAll(".colLabel")
+        .data(classes)
+        .enter().append("text")
+          .text(function(d) { return d; })
+          .attr("x", function(d, i) { return i * gridSize; })
+          .attr("y", 0)
+          .style("text-anchor", "end")
+          .attr("transform", "translate(" + (gridSize / 2) + "," + (gridSize * -1/3) + ")");
 
     var rowNum = 0
     d3.text("../data_files/confusion_m_nrf" + numFeatures + "_bw" + bw + ".csv", function(text) {
@@ -154,6 +222,7 @@ function confMat() {
             .style("fill", function(d) { return confColors(d.val); });
     });
 }
+
 
 //Histogram.
 function scoreHist() {
