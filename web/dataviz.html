@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div class="pure-g">
@@ -17,6 +18,24 @@
                 <div id="conf"></div>
                 <h4>Classification Scores</h4>
                 <div id="histChart"></div>
+                <br>
+                <div>
+                    <span>Kernel Density Bandwidth</span>
+                    <select id="bwRange" class="input" onchange="bwUpdate(this.value)">
+                        <option value="0.01">0.01</option selected="selected">
+                        <option value="0.02">0.02</option>
+                        <option value="0.03">0.03</option>
+                        <option value="0.04">0.04</option>
+                        <option value="0.06">0.06</option>
+                        <option value="0.1">0.1</option>
+                        <option value="0.16">0.16</option>
+                        <option value="0.25">0.25</option>
+                        <option value="0.4">0.4</option>
+                        <option value="0.63">0.63</option>
+                        <option value="1.0">1.0</option>
+                    </select>
+                    <span id="bwVal" class="input">0.01</span>
+                </div>
             </div>
         </div>
         <div class="pure-g">
@@ -31,6 +50,11 @@
                 <br>
                 <h4>Fisher's Discriminant Ratio</h4>
                 <div id="fdrChart"></div>
+                <div>
+                    <span>Number of Features</span>
+                    <input id=featRange" class="input" min="1" max="41" step="1" value="41" type="range" onchange="featuresUpdate(this.value)"></input>
+                    <span id="featVal">41</span>
+                </div>
             </div>
         </div>
         <script src="http://d3js.org/d3.v3.min.js"></script>
