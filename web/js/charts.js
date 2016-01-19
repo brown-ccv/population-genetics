@@ -3,7 +3,7 @@ classes = ["hl", "hs", "ne", "sl", "ss"];
 var bandwidths = ["0.01", "0.02", "0.03", "0.04", "0.06", "0.10", "0.16", 
                   "0.25", "0.40", "0.63", "1.00"];
 var numFeatures = 41;
-var bw = "0.01";
+var bw = "-2.0";
 var padding = 10;
 var chartWidth = document.body.clientWidth / 2 - padding * 2;
 var heatmapWidth = document.body.clientWidth / 3;
@@ -11,7 +11,7 @@ var colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225e
 
 //FDR chart.
 var fdrChart;
-fdrChart = d3.text("../data_files/FDR.csv", function(text) {
+fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
 
     var fdrData = ["Fisher's Discriminant Ratio"];
     var xAxisVals = ['x'];
@@ -102,7 +102,7 @@ corrLegend.append("text")
     .attr("font-size", corrGridSize + "px")
     .text(function(d) { return "≥ " + d.toFixed(2); });
 
-d3.text("../data_files/corr_coef_" + numFeatures + ".csv", function(text) {
+d3.text("../data_files_logbw/corr_coef_" + numFeatures + ".csv", function(text) {
     var rowNum = 0
     d3.csv.parseRows(text, function(row) {
         for(var colNum = 0; colNum < row.length; colNum++) {
@@ -271,7 +271,7 @@ function corrMatUpdate() {
 
 //Update confusion matrix.
 function confMatUpdate() {
-    d3.text("../data_files/confusion_m_nrf" + numFeatures + "_bw" + bw + ".csv", function(text) {
+    d3.text("../data_files_logbw/confusion_m_nrf" + numFeatures + "_bw" + bw + ".csv", function(text) {
         var confData = [];
         var rowNum = 0
         d3.csv.parseRows(text, function(row) {
@@ -291,7 +291,7 @@ function confMatUpdate() {
 
 //Update score histogram.
 function scoreHistUpdate() {
-    d3.text("../data_files/histogram_nrf" + numFeatures + "_bw" + bw + ".csv", function(text) {
+    d3.text("../data_files_logbw/histogram_nrf" + numFeatures + "_bw" + bw + ".csv", function(text) {
 
         var histData = ["Fraction of Simulations [%]"];
 
@@ -317,8 +317,8 @@ function featuresUpdate(val) {
 
 //Bandwidth slider action.
 function bwUpdate(val) {
-    document.getElementById("bwVal").innerHTML = val;
-    bw = val;
+    bw = Number(val).toFixed(1);
+    document.getElementById("bwVal").innerHTML = bw;
     scoreHistUpdate();
     confMatUpdate();
 }

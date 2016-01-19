@@ -20,21 +20,9 @@
                 <div id="histChart"></div>
                 <br>
                 <div>
-                    <span>Kernel Density Bandwidth</span>
-                    <select id="bwRange" class="input" onchange="bwUpdate(this.value)">
-                        <option value="0.01">0.01</option selected="selected">
-                        <option value="0.02">0.02</option>
-                        <option value="0.03">0.03</option>
-                        <option value="0.04">0.04</option>
-                        <option value="0.06">0.06</option>
-                        <option value="0.1">0.1</option>
-                        <option value="0.16">0.16</option>
-                        <option value="0.25">0.25</option>
-                        <option value="0.4">0.4</option>
-                        <option value="0.63">0.63</option>
-                        <option value="1.0">1.0</option>
-                    </select>
-                    <span id="bwVal" class="input">0.01</span>
+                    <span>Log10 of Kernel Density Bandwidth:</span>
+                    <input id="bwRange" class="input" min="-2" max="0" step="0.2" value="-2" type="range" onchange="bwUpdate(this.value)"></input>
+                    <span id="bwVal" class="input">-2</span>
                 </div>
             </div>
         </div>
@@ -51,7 +39,7 @@
                 <h4>Fisher's Discriminant Ratio</h4>
                 <div id="fdrChart"></div>
                 <div>
-                    <span>Number of Features</span>
+                    <span>Number of Features:</span>
                     <input id=featRange" class="input" min="1" max="41" step="1" value="41" type="range" onchange="featuresUpdate(this.value)"></input>
                     <span id="featVal">41</span>
                 </div>
