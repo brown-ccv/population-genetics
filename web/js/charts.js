@@ -10,7 +10,8 @@ var heatmapWidth = document.body.clientWidth / 3;
 var colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"];
 
 //FDR chart.
-d3.text("../data_files/FDR.csv", function(text) {
+var fdrChart;
+fdrChart = d3.text("../data_files/FDR.csv", function(text) {
 
     var fdrData = ["Fisher's Discriminant Ratio"];
     var xAxisVals = ['x'];
@@ -23,7 +24,7 @@ d3.text("../data_files/FDR.csv", function(text) {
         featureNum++;
     });
 
-    c3.generate({
+    fdrChart = c3.generate({
         bindto: "#fdrChart",
         size: {
             width: heatmapWidth,
@@ -31,7 +32,10 @@ d3.text("../data_files/FDR.csv", function(text) {
         },
         data: {
             x: 'x',
-            columns: [xAxisVals, fdrData]
+            columns: [xAxisVals, fdrData],
+            selection: {
+                enabled: true
+            }
         },
         tooltip: {
             format: {
@@ -241,6 +245,18 @@ confHeatmap.enter().append("rect")
 
 confMatUpdate();
 
+function fdrChartUpdate() {
+    d3.selectAll(".c3-circle")
+        .transition()
+        .style("opacity", function(d) {
+            if(d.index >= numFeatures) {
+                return 0.2;
+            } else {
+                return 1;
+            }
+        });
+}
+
 //Update correlation matrix.
 function corrMatUpdate() {
     corrHeatmap.transition()
@@ -293,6 +309,7 @@ function scoreHistUpdate() {
 function featuresUpdate(val) {
     document.getElementById("featVal").innerHTML = val;
     numFeatures = parseInt(val);
+    fdrChartUpdate();
     corrMatUpdate();
     scoreHistUpdate();
     confMatUpdate();
