@@ -2,18 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
         <link rel="stylesheet" href="css/d3-tip.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div class="pure-g">
-            <div class="pure-u-1-2">
-                <h2>Aggregation</h2>
+            <div class="pure-u-1-2" id="gen-model">
+                <h2>Generative model</h2>
             </div>
-            <div class="pure-u-1-2">
-                <h2>Analysis</h2>
+            <div class="pure-u-1-2" id="analysis-infer">
+                <h2>Analysis/inference</h2>
                 <h4></h4>
                 <h4>Confusion Matrix</h4>
                 <div id="conf"></div>
@@ -27,16 +27,15 @@
                 </div>
             </div>
         </div>
-        <div class="pure-g">
+        <div class="pure-g" id="observed">
+            <div class="pure-u-1-1">
+                <h2>Observed data</h2>
+            </div>
             <div class="pure-u-1-2">
-                <h2>Exploration</h2>
                 <h4>Correlation Coefficient Matrix</h4>
                 <div id="corr"></div>
             </div>
             <div class="pure-u-1-2">
-                <br>
-                <br>
-                <br>
                 <h4>Fisher's Discriminant Ratio (FDR)</h4>
                 <div id="fdrChart"></div>
                 <div>
@@ -46,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
         <script src="js/d3-tip.js"></script>
         <script src="js/charts.js"></script>

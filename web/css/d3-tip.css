@@ -52,3 +52,20 @@
   top: 50%;
   left: 100%;
 }
+
+h2 {
+    color:white;
+    text-align:center;
+}
+
+#gen-model {
+    background:rgb(194,118,25);
+}
+
+#analysis-infer {
+    background:rgb(84,137,160);
+}
+
+#observed {
+    background:rgb(193,44,51);
+}
