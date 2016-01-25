@@ -76,7 +76,8 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
 var corrHeatmap;
 var corrData = [];
 var corrGridSize = (heatmapWidth - padding * 2) / (numFeatures + 2);
-var corrLegendWidth = (heatmapWidth - padding * 2) / colorsCC.length;
+//var corrLegendWidth = (heatmapWidth - padding * 2) / colorsCC.length;
+var corrLegendWidth = corrGridSize * numFeatures / colorsCC.length;
 
 var corrColors = d3.scale.quantile()
     .domain([-1,1])
@@ -180,7 +181,8 @@ scoreHistUpdate();
 //Initial confusion matrix.
 var confHeatmap;
 var confGridSize = (heatmapWidth - padding * 2) / (classes.length + 2);
-var confLegendWidth = (heatmapWidth - padding * 2) / colorsCM.length;
+//var confLegendWidth = (heatmapWidth - padding * 2) / colorsCM.length;
+var confLegendWidth = confGridSize;
 
 var confColors = d3.scale.quantile()
     .domain([0,0.2])
