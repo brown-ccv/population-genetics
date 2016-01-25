@@ -159,12 +159,18 @@ var scoreHistChart = c3.generate({
     },
     axis: {
         x: {
+            max: 100,
+            min: 1,
+            padding: {top:0, bottom:0},
             label: {
                 text: "Classification Score [%]",
                 position: "outer-center"
             }
         },
         y: {
+            max: 20,
+            min: 0,
+            padding: {top:0, bottom:0},
             label: {
                 text: "Fraction of Simulations [%]",
                 position: "outer-middle"
