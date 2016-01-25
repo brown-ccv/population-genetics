@@ -7,7 +7,9 @@ var bw = "-2.0";
 var padding = 10;
 var chartWidth = document.body.clientWidth / 2 - padding * 2;
 var heatmapWidth = document.body.clientWidth / 3;
-var colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"];
+var colorsCC = ["#b35806","#e08214","#fdb863","#fee0b6","#d8daeb","#b2abd2","#8073ac","#542788"];
+var colorsCM = ["#ffffcc","#c2e699","#78c679","#31a354","#006837"];
+
 
 //FDR chart.
 var fdrChart;
@@ -72,11 +74,11 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
 var corrHeatmap;
 var corrData = [];
 var corrGridSize = (heatmapWidth - padding * 2) / (numFeatures + 2);
-var legendWidth = (heatmapWidth - padding * 2) / colors.length;
+var legendWidth = (heatmapWidth - padding * 2) / colorsCC.length;
 
 var corrColors = d3.scale.quantile()
     .domain([-1,1])
-    .range(colors);
+    .range(colorsCC);
 
 var corrSvg = d3.select("#corr").append("svg")
     .attr("width", heatmapWidth)
@@ -94,7 +96,7 @@ corrLegend.append("rect")
     .attr("y", heatmapWidth - padding - corrGridSize * 2)
     .attr("width", legendWidth)
     .attr("height", corrGridSize)
-    .style("fill", function(d, i) { return colors[i]; });
+    .style("fill", function(d, i) { return colorsCC[i]; });
 
 corrLegend.append("text")
     .attr("x", function(d, i) { return legendWidth * i; })
@@ -173,11 +175,11 @@ scoreHistUpdate();
 //Initial confusion matrix.
 var confHeatmap;
 var confGridSize = (heatmapWidth - padding * 2) / (classes.length + 2);
-var legendWidth = (heatmapWidth - padding * 2) / colors.length;
+var legendWidth = (heatmapWidth - padding * 2) / colorsCM.length;
 
 var confColors = d3.scale.quantile()
     .domain([0,0.2])
-    .range(colors);
+    .range(colorsCM);
 
 var confSvg = d3.select("#conf").append("svg")
     .attr("width", heatmapWidth)
@@ -218,7 +220,7 @@ confLegend.append("rect")
     .attr("y", heatmapWidth - padding - (confGridSize * 1.75))
     .attr("width", legendWidth)
     .attr("height", confGridSize / 2)
-    .style("fill", function(d, i) { return colors[i]; });
+    .style("fill", function(d, i) { return colorsCM[i]; });
 
 confLegend.append("text")
     .attr("x", function(d, i) { return legendWidth * i; })
