@@ -7,8 +7,8 @@ var bw = "-2.0";
 var padding = 10;
 var chartWidth = document.body.clientWidth / 2 - padding * 2;
 var heatmapWidth = document.body.clientWidth / 3;
-var corrColorArr = ["#d73027","#f46d43","#fdae61","#fee090","#ffffbf","#e0f3f8","#abd9e9","#74add1","#4575b4"].reverse();
-var confColorArr = ["#ffffff","#f0f0f0","#d9d9d9","#bdbdbd","#969696","#737373","#525252","#252525","#000000"];
+var colorsCC = ["#b35806","#e08214","#fdb863","#fee0b6","#d8daeb","#b2abd2","#8073ac","#542788"];
+var colorsCM = ["#ffffcc","#c2e699","#78c679","#31a354","#006837"];
 
 //FDR chart.
 var fdrChart;
@@ -76,11 +76,11 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
 var corrHeatmap;
 var corrData = [];
 var corrGridSize = (heatmapWidth - padding * 2) / (numFeatures + 2);
-var corrLegendWidth = (heatmapWidth - padding * 2) / corrColorArr.length;
+var corrLegendWidth = (heatmapWidth - padding * 2) / colorsCC.length;
 
 var corrColors = d3.scale.quantile()
     .domain([-1,1])
-    .range(corrColorArr);
+    .range(colorsCC);
 
 var corrSvg = d3.select("#corr").append("svg")
     .attr("width", heatmapWidth)
@@ -98,7 +98,11 @@ corrLegend.append("rect")
     .attr("y", heatmapWidth - padding - corrGridSize * 2)
     .attr("width", corrLegendWidth)
     .attr("height", corrGridSize)
-    .style("fill", function(d, i) { return corrColorArr[i]; });
+<<<<<<< HEAD
+    .style("fill", function(d, i) { return colorsCC[i]; });
+=======
+    .style("fill", function(d, i) { return colorsCC[i]; });
+>>>>>>> cae798fb868398291b1fc491ee3641bad89cd397
 
 corrLegend.append("text")
     .attr("x", function(d, i) { return corrLegendWidth * i; })
@@ -180,11 +184,11 @@ scoreHistUpdate();
 //Initial confusion matrix.
 var confHeatmap;
 var confGridSize = (heatmapWidth - padding * 2) / (classes.length + 2);
-var confLegendWidth = (heatmapWidth - padding * 2) / confColorArr.length;
+var confLegendWidth = (heatmapWidth - padding * 2) / colorsCM.length;
 
 var confColors = d3.scale.quantile()
     .domain([0,0.2])
-    .range(confColorArr);
+    .range(colorsCM);
 
 var confSvg = d3.select("#conf").append("svg")
     .attr("width", heatmapWidth)
@@ -225,7 +229,11 @@ confLegend.append("rect")
     .attr("y", heatmapWidth - padding - (confGridSize * 1.75))
     .attr("width", confLegendWidth)
     .attr("height", confGridSize / 2)
-    .style("fill", function(d, i) { return confColorArr[i]; });
+<<<<<<< HEAD
+    .style("fill", function(d, i) { return colorsCM[i]; });
+=======
+    .style("fill", function(d, i) { return colorsCM[i]; });
+>>>>>>> cae798fb868398291b1fc491ee3641bad89cd397
 
 confLegend.append("text")
     .attr("x", function(d, i) { return confLegendWidth * i; })
