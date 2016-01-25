@@ -30,6 +30,9 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
             width: heatmapWidth,
             height: heatmapWidth
         },
+        point: {
+            r: 5
+        },
         data: {
             x: 'x',
             columns: [xAxisVals, fdrData]
