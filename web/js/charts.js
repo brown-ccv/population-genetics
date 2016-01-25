@@ -98,11 +98,7 @@ corrLegend.append("rect")
     .attr("y", heatmapWidth - padding - corrGridSize * 2)
     .attr("width", corrLegendWidth)
     .attr("height", corrGridSize)
-<<<<<<< HEAD
     .style("fill", function(d, i) { return colorsCC[i]; });
-=======
-    .style("fill", function(d, i) { return colorsCC[i]; });
->>>>>>> cae798fb868398291b1fc491ee3641bad89cd397
 
 corrLegend.append("text")
     .attr("x", function(d, i) { return corrLegendWidth * i; })
@@ -229,11 +225,7 @@ confLegend.append("rect")
     .attr("y", heatmapWidth - padding - (confGridSize * 1.75))
     .attr("width", confLegendWidth)
     .attr("height", confGridSize / 2)
-<<<<<<< HEAD
     .style("fill", function(d, i) { return colorsCM[i]; });
-=======
-    .style("fill", function(d, i) { return colorsCM[i]; });
->>>>>>> cae798fb868398291b1fc491ee3641bad89cd397
 
 confLegend.append("text")
     .attr("x", function(d, i) { return confLegendWidth * i; })
