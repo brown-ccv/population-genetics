@@ -28,7 +28,7 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
     fdrChart = c3.generate({
         bindto: "#fdrChart",
         color: {
-            pattern: ['#fff']
+            pattern: ['#fdb863']
         },
         size: {
             width: heatmapWidth,
@@ -141,7 +141,7 @@ d3.text("../data_files_logbw/corr_coef_" + numFeatures + ".csv", function(text) 
 var scoreHistChart = c3.generate({
     bindto: "#histChart",
     color: {
-        pattern: ['#fff']
+        pattern: ['#c2e699']
     },
     size: {
         width: heatmapWidth
