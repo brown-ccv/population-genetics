@@ -10,20 +10,25 @@
     <body>
         <div class="pure-g">
             <div class="pure-u-1-2" id="gen-model">
-                <h2>Generative model</h2>
+                <div class="box">
+                    <h2>Generative model</h2>
+                </div>
             </div>
             <div class="pure-u-1-2" id="analysis-infer">
                 <h2>Analysis/inference</h2>
-                <h4></h4>
-                <h4>Confusion Matrix</h4>
-                <div id="conf"></div>
-                <h4>Classification Scores</h4>
-                <div id="histChart"></div>
-                <br>
-                <div>
-                    <span>Log10 of Kernel Density Bandwidth:</span>
-                    <input id="bwRange" class="input" min="-2" max="0" step="0.2" value="-2" type="range" onchange="bwUpdate(this.value)"></input>
-                    <span id="bwVal" class="input">-2</span>
+                <div class="box">
+                    <h4>Confusion Matrix</h4>
+                    <div id="conf"></div>
+                </div>
+                <div class="box">
+                    <h4>Classification Scores</h4>
+                    <div id="histChart"></div>
+                    <br>
+                    <div>
+                        <span>Log10 of Kernel Density Bandwidth:</span>
+                        <input id="bwRange" class="input" min="-2" max="0" step="0.2" value="-2" type="range" onchange="bwUpdate(this.value)"></input>
+                        <span id="bwVal" class="input">-2</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -32,16 +37,20 @@
                 <h2>Observed data</h2>
             </div>
             <div class="pure-u-1-2">
-                <h4>Correlation Coefficient Matrix</h4>
-                <div id="corr"></div>
+                <div class="box">
+                    <h4>Correlation Coefficient Matrix</h4>
+                    <div id="corr"></div>
+                </div>
             </div>
             <div class="pure-u-1-2">
-                <h4>Fisher's Discriminant Ratio (FDR)</h4>
-                <div id="fdrChart"></div>
-                <div>
-                    <span>Number of Features:</span>
-                    <input id=featRange" class="input" min="1" max="41" step="1" value="41" type="range" onchange="featuresUpdate(this.value)"></input>
-                    <span id="featVal">41</span>
+                <div class="box">
+                    <h4>Fisher's Discriminant Ratio (FDR)</h4>
+                    <div id="fdrChart"></div>
+                    <div>
+                        <span>Number of Features:</span>
+                        <input id="featRange" class="input" min="1" max="41" step="1" value="41" type="range" onchange="featuresUpdate(this.value)"></input>
+                        <span id="featVal">41</span>
+                    </div>
                 </div>
             </div>
         </div>

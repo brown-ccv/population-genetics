@@ -1,3 +1,27 @@
+h2 {
+    color:white;
+    text-align:center;
+}
+
 .input {
     margin-left:10px;
+}
+
+.box {
+    padding-left:10%;
+    padding-right:10%;
+    padding-top:5%;
+    padding-bottom:5%;
+}
+
+#gen-model {
+    background:rgb(194,118,25);
+}
+
+#analysis-infer {
+    background:rgb(84,137,160);
+}
+
+#observed {
+    background:rgb(193,44,51);
 }

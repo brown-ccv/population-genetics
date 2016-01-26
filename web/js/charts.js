@@ -10,6 +10,8 @@ var heatmapWidth = document.body.clientWidth / 3;
 var colorsCC = ["#b35806","#e08214","#fdb863","#fee0b6","#d8daeb","#b2abd2","#8073ac","#542788"];
 var colorsCM = ["#ffffcc","#c2e699","#78c679","#31a354","#006837"];
 
+document.getElementById("featRange").style.width = (heatmapWidth - padding) + "px";
+
 //FDR chart.
 var fdrChart;
 fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
@@ -33,6 +35,9 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
         size: {
             width: heatmapWidth,
             height: heatmapWidth
+        },
+        padding: {
+            left: padding
         },
         point: {
             r: 5
