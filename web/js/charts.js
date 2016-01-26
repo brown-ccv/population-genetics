@@ -5,12 +5,14 @@ var bandwidths = ["0.01", "0.02", "0.03", "0.04", "0.06", "0.10", "0.16",
 var numFeatures = 41;
 var bw = "-2.0";
 var padding = 10;
+fdrPadding = 40;
 var chartWidth = document.body.clientWidth / 2 - padding * 2;
 var heatmapWidth = document.body.clientWidth / 3;
 var colorsCC = ["#b35806","#e08214","#fdb863","#fee0b6","#d8daeb","#b2abd2","#8073ac","#542788"];
 var colorsCM = ["#ffffcc","#c2e699","#78c679","#31a354","#006837"];
 
-document.getElementById("featRange").style.width = (heatmapWidth - padding) + "px";
+document.getElementById("featRange").style.width = (heatmapWidth - fdrPadding * 2) + "px";
+document.getElementById("featRange").style["margin-left"] = fdrPadding + "px";
 
 //FDR chart.
 var fdrChart;
@@ -37,7 +39,8 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
             height: heatmapWidth
         },
         padding: {
-            left: padding
+            left: fdrPadding,
+            right: fdrPadding
         },
         point: {
             r: 5
