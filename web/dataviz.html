@@ -17,7 +17,7 @@
             <div class="pure-u-1-2" id="analysis-infer">
                 <h2>Analysis/inference</h2>
                 <div class="box">
-                    <p align=justify>The goal of the analysis is to perform classification: we want to know what is the class of a new data point. To do that, we train a classifier on a training set where the classes are known, and evaluate the classifier on a test set where the classes are known to us but not the to the classifier (so we can evaluate the performance of the classifier).</p><p align-justify>We divide the data set into training (75%) and test sets (25%). We use the training set to train a Naive Bayes Classifier with Kernel Density Estimators (KDE). The classifier is evaulated on the test set by calculating the classification score and the confusion matrix.</p>
+                    <p align=justify>The goal of the analysis is to perform classification: we want to know what is the class of a new data point. To do that, we train a classifier on a training set where the classes are known, and evaluate the classifier on a test set where the classes are known to us but not to the classifier (so we can evaluate the performance of the classifier).</p><p align=justify>We divide the data set into training (75%) and test sets (25%). We use the training set to train a Naive Bayes Classifier with Kernel Density Estimators (KDE). The classifier is evaulated on the test set by calculating the classification score and the confusion matrix.</p>
                     <h4>Confusion Matrix</h4>
                     <p align=justify>The confusion matrix illustrates in what way the classifier confuses classes. The C<sub>i,j</sub> element of the matrix is equal to the fraction of observations known to be in group i but predicted to be in group j. A perfect classifier would have 0.2 in the diagonal and 0 in the off-diagonal locations (no confusion). Hover over the grid cells to see C<sub>i,j</sub>.</p>
                     <div id="conf"></div>
@@ -31,7 +31,7 @@
                         <span id="bwVal" class="input">-2</span>
                         <span><h4>Log10 of Kernel Density Bandwidth</h4></span>
                         <span>
-                            <p aling=justify>The KDE has a bandwidth parameter that controls the smoothness of the estimated distributions for each feature. If the parameter is too small, the estimated distributions will become too spiky (the variance is too high). If the parameter is too large, the estimated distributions will become too flat (the bias is too high). The optimal value of the bandwidth maximizes the classification score. Move the slider to find the optimal value of the bandwidth!</p></span>
+                            <p align=justify>The KDE has a bandwidth parameter that controls the smoothness of the estimated distributions for each feature. If the parameter is too small, the estimated distributions will become too spiky (the variance is too high). If the parameter is too large, the estimated distributions will become too flat (the bias is too high). The optimal value of the bandwidth maximizes the classification score. Move the slider to find the optimal value of the bandwidth!</p></span>
                     </div>
                 </div>
             </div>
