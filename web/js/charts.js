@@ -60,7 +60,7 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
         //             format: function(x) { return features[x]; }
         //         },
                 label: {
-                    text: "Features, Numbered by FDR (Hover over Point for Name)",
+                    text: "Features",
                     position: "outer-center"
                 }
             },

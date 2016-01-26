@@ -40,6 +40,9 @@
                 <div class="box">
                     <h4>Correlation Coefficient Matrix</h4>
                     <div id="corr"></div>
+                    <div>
+                        <span><p align=justify>The correlation coefficient is a measure of linear correlation between two variables. Its value is between -1 (strong negative correlation) and +1 (strong positive correlation). Hover over grid cells to see the names of two variables and their correlation coefficient.</p></span>
+                    </div>
                 </div>
             </div>
             <div class="pure-u-1-2">
@@ -47,7 +50,7 @@
                     <h4>Fisher's Discriminant Ratio (FDR)</h4>
                     <div id="fdrChart"></div>
                     <div>
-                        <span>Number of Features:</span>
+                        <span><h4>Feature selection</h4><p align=justify>The Fisher's Discriminat Ratio describes how good a feature is at disciminating between the classes. Moving this slider from right to left progressively eliminates features with lower Discriminant Ratios. Hover over the points to see the feature name and the Discriminant Ratio.</p></span>
                         <input id="featRange" class="input" min="1" max="41" step="1" value="41" type="range" onchange="featuresUpdate(this.value)"></input>
                         <span id="featVal">41</span>
                     </div>
