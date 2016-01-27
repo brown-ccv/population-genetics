@@ -16,7 +16,6 @@ h2 {
 
 #arrow {
     position: absolute;
-    top:10%;
     left:1%;
     right:1%;
     width:98%;
@@ -32,4 +31,8 @@ h2 {
 
 #observed {
     background:rgb(193,44,51);
+}
+.sum_box {
+    padding-left:2%;
+    padding-right:2%;
 }

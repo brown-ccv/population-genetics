@@ -364,6 +364,5 @@ function bwUpdate(val) {
     confMatUpdate();
 }
 
-var corrEl = document.getElementById("corr");
-document.getElementById("arrow").style.height = (corr.offsetTop + corr.offsetHeight) + "px";
-
+var observedEl = document.getElementById("observed");
+document.getElementById("arrow").style.height = (observedEl.offsetTop + observedEl.offsetHeight) + "px";
