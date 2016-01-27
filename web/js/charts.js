@@ -57,11 +57,6 @@ fdrChart = d3.text("../data_files_logbw/FDR.csv", function(text) {
         },
         axis: {
             x: {
-        //         type: "category",
-        //         tick: {
-        //             rotate: 75,
-        //             format: function(x) { return features[x]; }
-        //         },
                 label: {
                     text: "Features",
                     position: "outer-center"
@@ -368,3 +363,7 @@ function bwUpdate(val) {
     scoreHistUpdate();
     confMatUpdate();
 }
+
+var corrEl = document.getElementById("corr");
+document.getElementById("arrow").style.height = (corr.offsetTop + corr.offsetHeight) + "px";
+

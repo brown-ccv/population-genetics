@@ -14,6 +14,14 @@ h2 {
     padding-bottom:5%;
 }
 
+#arrow {
+    position: absolute;
+    top:10%;
+    left:1%;
+    right:1%;
+    width:98%;
+}
+
 #gen-model {
     background:rgb(194,118,25);
 }
