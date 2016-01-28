@@ -1,7 +1,8 @@
 h2 {
     color:white;
     text-align:center;
-    padding-top:2%;
+    padding-top:4%;
+    padding-bottom:0%;
 }
 
 .input {
@@ -49,9 +50,9 @@ h2 {
     content: '';
     width: 0;
     height: 0;
-    border-left: solid 50px transparent;
-    border-top: solid 25px #ffffff;
-    border-right: solid 50px transparent;
+    border-left: solid 80px transparent;
+    border-top: solid 40px #ffffff;
+    border-right: solid 80px transparent;
 }
 
 
@@ -64,9 +65,9 @@ h2 {
     content: '';
     width: 0;
     height: 0;
-    border-left: solid 50px transparent;
-    border-top: solid 25px rgb(194,118,25);
-    border-right: solid 50px transparent;
+    border-left: solid 80px transparent;
+    border-top: solid 40px rgb(194,118,25);
+    border-right: solid 80px transparent;
 }
 
 #analysis-infer {
@@ -82,16 +83,16 @@ h2 {
 #analysis-infer:after {
     z-index: 1;
     position: absolute;
-    top: 98.6%;
+    top: 97.7%;
     left: 45%;
     margin-left: 0%;
     content: '';
     width: 0;
     height: 0;
     
-    border-left: solid 50px transparent;
-    border-bottom: solid 25px rgb(193,44,51);
-    border-right: solid 50px transparent;
+    border-left: solid 80px transparent;
+    border-bottom: solid 40px rgb(193,44,51);
+    border-right: solid 80px transparent;
 }
 
 
