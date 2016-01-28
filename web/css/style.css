@@ -14,13 +14,20 @@ h2 {
     padding-bottom:5%;
 }
 
-#arrow {
-    position: absolute;
-    left:1%;
-    right:1%;
-    width:98%;
+.figure {
+    padding-left:5%;
+    padding-right:5%;
+    padding-top:5%;
+    padding-bottom:5%;
 }
 
+#fig {
+    position: relative;
+    left:1%;
+    right:1%;
+    width:90%;
+    top:1%;
+}
 #gen-model {
     background:rgb(194,118,25);
 }
