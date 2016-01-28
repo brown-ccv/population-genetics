@@ -1,6 +1,7 @@
 h2 {
     color:white;
     text-align:center;
+    padding-top:2%;
 }
 
 .input {
@@ -12,6 +13,12 @@ h2 {
     padding-right:10%;
     padding-top:5%;
     padding-bottom:5%;
+    
+}
+
+.sum_box {
+    padding-left:2%;
+    padding-right:2%;
 }
 
 .figure {
@@ -30,16 +37,61 @@ h2 {
 }
 #gen-model {
     background:rgb(194,118,25);
+    position:relative;
+}
+
+#gen-model:before {
+    z-index: 0;
+    position: absolute;
+    top: 0%;
+    left: 20%;
+    margin-left: 0%;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: solid 200px transparent;
+    border-top: solid 25px #ffffff;
+    border-right: solid 200px transparent;
+}
+
+
+#gen-model:after {
+    z-index: 0;
+    position: absolute;
+    top: 100%;
+    left: 20%;
+    margin-left: 0%;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: solid 200px transparent;
+    border-top: solid 25px rgb(194,118,25);
+    border-right: solid 200px transparent;
 }
 
 #analysis-infer {
     background:rgb(84,137,160);
+    position:relative;
 }
 
 #observed {
     background:rgb(193,44,51);
 }
-.sum_box {
-    padding-left:2%;
-    padding-right:2%;
+
+
+#analysis-infer:after {
+    z-index: 1;
+    position: absolute;
+    top: 98.6%;
+    left: 20%;
+    margin-left: 0%;
+    content: '';
+    width: 0;
+    height: 0;
+    
+    border-left: solid 200px transparent;
+    border-bottom: solid 25px rgb(193,44,51);
+    border-right: solid 200px transparent;
 }
+
+
