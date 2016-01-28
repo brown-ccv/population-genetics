@@ -44,14 +44,14 @@ h2 {
     z-index: 0;
     position: absolute;
     top: 0%;
-    left: 20%;
+    left: 45%;
     margin-left: 0%;
     content: '';
     width: 0;
     height: 0;
-    border-left: solid 200px transparent;
+    border-left: solid 50px transparent;
     border-top: solid 25px #ffffff;
-    border-right: solid 200px transparent;
+    border-right: solid 50px transparent;
 }
 
 
@@ -59,14 +59,14 @@ h2 {
     z-index: 0;
     position: absolute;
     top: 100%;
-    left: 20%;
+    left: 45%;
     margin-left: 0%;
     content: '';
     width: 0;
     height: 0;
-    border-left: solid 200px transparent;
+    border-left: solid 50px transparent;
     border-top: solid 25px rgb(194,118,25);
-    border-right: solid 200px transparent;
+    border-right: solid 50px transparent;
 }
 
 #analysis-infer {
@@ -83,15 +83,15 @@ h2 {
     z-index: 1;
     position: absolute;
     top: 98.6%;
-    left: 20%;
+    left: 45%;
     margin-left: 0%;
     content: '';
     width: 0;
     height: 0;
     
-    border-left: solid 200px transparent;
+    border-left: solid 50px transparent;
     border-bottom: solid 25px rgb(193,44,51);
-    border-right: solid 200px transparent;
+    border-right: solid 50px transparent;
 }
 
 

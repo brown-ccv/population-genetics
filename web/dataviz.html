@@ -40,11 +40,11 @@
                 <h2>Analysis/inference</h2>
                 <div class="box">
                     <h4>Confusion Matrix</h4>
-                    <p align=justify>The confusion matrix illustrates in what way the classifier confuses classes. The C<sub>i,j</sub> element of the matrix is equal to the fraction of observations known to be in group i but predicted to be in group j. A perfect classifier would have 0.2 in the diagonal and 0 in the off-diagonal locations (no confusion). Hover over the grid cells to see C<sub>i,j</sub>. As you adjust the feature selection and the KDE bandwidth (below), the values change.</p>
+                    <p align=justify>The confusion matrix illustrates in what way the classifier confuses classes. The C<sub>i,j</sub> element of the matrix is equal to the fraction of observations known to be in group i but predicted to be in group j. A perfect classifier in our case would have 0.2 in the diagonal and 0 in the off-diagonal locations (no confusion). Hover over the grid cells to see C<sub>i,j</sub>. As you adjust the feature selection and the KDE bandwidth sliders (below), the values change.</p>
                     <div id="conf"></div>
                 </div>
                 <div class="box">
-                    <h4>Classification Scores</h4><p align=justify>The classification score describes what fraction of the points in the test set were correctly classified. We performed a large number of simulations to see the effect of randomly splitting the data set into training and test sets. The fraction of simulations with a given test score is shown in the figure.</p>
+                    <h4>Classification Scores</h4><p align=justify>The classification score describes what fraction of the points in the test set were correctly classified. We performed a large number of simulations to see how randomly splitting the data set into training and test sets influences the score. The fraction of simulations with a given test score is shown in the figure.</p>
                     <div id="histChart"></div>
                     <br>
                     <div>
@@ -52,7 +52,7 @@
                         <span id="bwVal" class="input">-2</span>
                         <span><h4>Log<sub>10</sub> of Kernel Density Bandwidth</h4></span>
                         <span>
-                            <p align=justify>The KDE has a bandwidth parameter that controls the smoothness of the estimated distributions for each feature. If the parameter is too small, the estimated distributions will become too spiky (the variance is too high). If the parameter is too large, the estimated distributions will become too flat (the bias is too high). The optimal value of the bandwidth maximizes the classification score. Move the slider to find the optimal value of the bandwidth and see how the confusion matrix changes!</p></span>
+                            <p align=justify>The KDE has a bandwidth parameter that controls the smoothness of the estimated distributions for each summary statistics. If the parameter is too small, the estimated distributions will become too spiky (the variance is too high). If the parameter is too large, the estimated distributions will become too flat (the bias is too high). The optimal value of the bandwidth maximizes the classification score. Move the slider to find the optimal value of the bandwidth and observe how the confusion matrix changes!</p></span>
                     </div>
                 </div>
             </div>
@@ -63,19 +63,19 @@
             </div>
             <div class="pure-u-1-2">
                 <div class="box">
-                    <h4>Correlation Coefficient Matrix</h4> <span><p align=justify>The correlation coefficient is a measure of linear correlation between two variables. Its value is between -1 (strong negative correlation) and +1 (strong positive correlation). Hover over grid cells to see the names of two variables and their correlation coefficient.</p></span>
+                    <h4>Correlation Coefficient Matrix</h4> <span><p align=justify>The correlation coefficient is a measure of linear correlation between two summary statistics in our data set. Its value is between -1 (strong negative correlation) and +1 (strong positive correlation). Hover over grid cells to see the names of two summary statistics and their correlation coefficient.</p></span>
                     <div id="corr"></div>
                     <span><p align=justify>As you adjust the feature selection slider (on the right), the corresponding part of the matrix will be shaded out.</p></span>
                 </div>
             </div>
             <div class="pure-u-1-2">
                 <div class="box">
-                    <h4>Fisher's Discriminant Ratio (FDR)</h4><p align=justify>The Fisher's Discriminat Ratio describes how good a feature is at disciminating between the classes. Hover over the points to see the feature name and the Discriminant Ratio.</p>
+                    <h4>Fisher's Discriminant Ratio (FDR)</h4><p align=justify>The Fisher's Discriminat Ratio describes how good a summary statistic (or feature) is at disciminating between the classes. Hover over the points to see the name of the summary statistic and its Discriminant Ratio.</p>
                     <div id="fdrChart"></div>
                     <div>
                         <input id="featRange" class="input" min="1" max="41" step="1" value="41" type="range" onchange="featuresUpdate(this.value)"></input>
                         <span id="featVal">41</span>
-                        <span><h4>Feature selection</h4><p align=justify>Moving this slider from right to left progressively eliminates features with lower Discriminant Ratios. Observe how many features you can exclude before you see a significant drop in the classification score (above)!</p></span>
+                        <span><h4>Feature selection</h4><p align=justify>Moving this slider from right to left progressively eliminates summary statistics with lower Discriminant Ratios. Observe how many features you can exclude before you see a significant drop in the classification score (above)!</p></span>
                     </div>
                 </div>
             </div>
